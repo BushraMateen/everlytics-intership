@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="/assestment-1/css/site.css">
+        <script src="/assestment-1/js/formSubmit.js"></script>
+    </head>
         <body>
 
             <form action = "/submit.html">
                 <div id = "main">
                     <div class = "h-tag">
-                        <h2>Form</h2>
+                        <h2 class="heading">Form</h2>
                     </div>
-                    <div class = "login">
+
                         <table cellspacing="2" >
                             <tr>
-                                <td>Select your source : </td>
-                                <td><input type = "text" placeholder="Google cloud storage" id="t2" class="tb"></td>
+                                <td class="select">Select your source : </td>
+                                <td>
+                                    <select class = "drop_down">
+                                            <option  value="Google cloud storage">Google cloud storage</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Provide a name to pipline :</td>
-                                <td><input type="text" placeholder="" id="t3" class="tb" /></td>
+                                <td><input type="text" placeholder="" id="t3" class="tb" required minlength="5" /></td>
                             </tr>
                             <tr>
                                 <td>GCS project name :</td>
-                                <td><input type="text" placeholder="" id="t4" class="tb" /></td>
+                                <td><input type="text" placeholder="" id="t4" class="tb" required minlength="5"/></td>
                             </tr>
                             <tr>
                                 <td>GCS bucket name :</td>
-                                <td><input type="text" placeholder="" id="t5" class="tb" /></td>
+                                <td><input type="text" placeholder="" id="t5" class="tb" required minlength="5" /></td>
                             </tr>
                             <tr>
                                 <td>Input cloud storage files :</td>
-                                <td><input type="text" placeholder="" id="t6" class="tb" /></td>
+                                <td><input type="text" placeholder="" id="t6" class="tb" required minlength="5" /></td>
                             </tr>
                             <tr>
                                 <td>GCS credentials:</td>
-                                <td><input type="text" placeholder="" id="t7" class="tb" /></td>
+                                <td><input type="text" placeholder="" id="t7" class="tb" required minlength="5"/></td>
                             </tr>
                             <tr>
                                 <td>Run every :</td>
-                                <td><input type="number" placeholder="" id="t8" class="tb" /></td>
+                                <td><input type="text" placeholder="" id="t8" class="tb" required minlength="5" /></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="submit" value="Create" class="btn" onclick="registration()" /></td>
-                                <input type="reset" value="Cancel" onclick="clearFunc()" id="res" class="btn" />
+                                    <input type="submit" value="Create" class="btn" onclick="registration()" />
+                                    <input type="reset" value="Cancel" onclick="clearFunc()"  class="btn" />
+                                </td> 
                                 </tr>
                         </table>
                     </div>
                 </div>
         </body>
         </form>
-    </head>
+    
 </html>
