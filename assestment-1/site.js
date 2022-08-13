@@ -1,12 +1,4 @@
-// Tutorial - https://youtu.be/VufN46OyFng
 
-// Targetting all classes & id from HTML
-
-//let id = (id) => document.getElementById(id);
-
-// function getElement(id) {
-//   return document.getElementById(id);
-// }
 let classes = (classes) => document.getElementsByClassName(classes);
 
 let pipline = document.getElementById("pipline"),
@@ -18,10 +10,6 @@ let pipline = document.getElementById("pipline"),
   errorMsg = classes("error");
 
   let piplineRegExp = /[^a-zA-Z0-9\-\/]/;
-// successIcon = classes("success-icon"),
-// failureIcon = classes("failure-icon");
-
-// Adding the submit event Listener
 
 form.addEventListener("submit", (e) => {
 
@@ -53,10 +41,6 @@ let engine = (id, serial, message) => {
   else {
     errorMsg[serial].innerHTML = "";
     id.style.border = "2px solid green";
-
-    // icons
-    // failureIcon[serial].style.opacity = "0";
-    // successIcon[serial].style.opacity = "1";
   }
 };
 function clearFunc(e)
