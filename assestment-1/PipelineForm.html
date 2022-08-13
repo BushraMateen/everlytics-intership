@@ -1,61 +1,84 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="/assestment-1/css/site.css">
-        <script src="/assestment-1/js/formSubmit.js"></script>
-    </head>
-        <body>
 
-            <form action = "/submit.html">
-                <div id = "main">
-                    <div class = "h-tag">
-                        <h2 class="heading">Form</h2>
-                    </div>
+<head>
+  <link rel="stylesheet" href="/assestment-1/site.css">
+  
+</head>
 
-                        <table cellspacing="2" >
-                            <tr>
-                                <td class="select">Select your source : </td>
-                                <td>
-                                    <select class = "drop_down">
-                                            <option  value="Google cloud storage">Google cloud storage</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Provide a name to pipline :</td>
-                                <td><input type="text" placeholder="" id="t3" class="tb" required minlength="5" /></td>
-                            </tr>
-                            <tr>
-                                <td>GCS project name :</td>
-                                <td><input type="text" placeholder="" id="t4" class="tb" required minlength="5"/></td>
-                            </tr>
-                            <tr>
-                                <td>GCS bucket name :</td>
-                                <td><input type="text" placeholder="" id="t5" class="tb" required minlength="5" /></td>
-                            </tr>
-                            <tr>
-                                <td>Input cloud storage files :</td>
-                                <td><input type="text" placeholder="" id="t6" class="tb" required minlength="5" /></td>
-                            </tr>
-                            <tr>
-                                <td>GCS credentials:</td>
-                                <td><input type="text" placeholder="" id="t7" class="tb" required minlength="5"/></td>
-                            </tr>
-                            <tr>
-                                <td>Run every :</td>
-                                <td><input type="text" placeholder="" id="t8" class="tb" required minlength="5" /></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="submit" value="Create" class="btn" onclick="registration()" />
-                                    <input type="reset" value="Cancel" onclick="clearFunc()"  class="btn" />
-                                </td> 
-                                </tr>
-                        </table>
-                    </div>
-                </div>
-        </body>
-        </form>
-    
+<body>
+  <div class="container">
+
+    <form id="form">
+
+      <div>
+        <label for="ddlSource">Select your Source : </label>
+        <div class="messageDiv">
+          <select id="ddlSource" name="ddlSource">
+            <option value="googleCloud">Google Cloud Storage</option>
+            <option value="AzureCloud">Azure Cloud Storage</option>
+            <option value="AWSCloud">AWS Cloud Storage</option>
+            <option value="OracleCloud">Oracle Cloud Storage</option>
+          </select>
+          <div class="error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="pipline">Provide a name for pipline : </label>
+        <div class="messageDiv">
+          <input type="text" name="pipline" id="pipline" placeholder="e.g., cust_shop_energy_gkateway001" />
+          <div class="error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="project">GCS project Name : </label>
+        <div class="messageDiv">
+          <input type="text" name="project" id="project" placeholder="project-id" />
+          <div class="error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="bucket">GCS bucket name : </label>
+        <div class="messageDiv">
+          <input type="text" name="bucket" id="bucket" placeholder="gs://your-bucket" />
+          <div class="error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="cloudstorage">Input cloud storage files : </label>
+        <div class="messageDiv">
+          <input type="file" name="cloudstorage" id="cloudstorage" title="GCS location of your files "
+          style="padding-top: 9px;" />
+        <!-- <label>Example: gs://your-bucket/your-files/01.csv</label> -->
+        <div class="error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="password">GCS credentials : </label>
+        <div class="messageDiv">
+          <input type="password" name="password" id="password" placeholder="********" />
+          <div class="error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="runtime">Run Every : </label>
+        <div class="messageDiv">
+          <input type="number" name="runtime" id="runtime" placeholder="(in minutes)" />
+          <div class="error"></div>
+        </div>
+      </div>
+
+      <div style="justify-content: end;">
+        <button type="submit" id="submit">Create</button>
+        <button id="Cancle" onclick="clearFunc()">Cancle</button>
+      </div>
+    </form>
+  </div>
+</body>
+<script src="/assestment-1/site.js"></script>
 </html>
