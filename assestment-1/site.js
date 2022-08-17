@@ -11,16 +11,35 @@ let pipline = document.getElementById("pipline"),
 
   let piplineRegExp = /[^a-zA-Z0-9\-\/]/;
 
+
 form.addEventListener("submit", (e) => {
 
   e.preventDefault();
+
+  let submitted = false;
 
   if(e.submitter.id !== 'Cancle'){
     engine(pipline, 1, "pipline name");
     engine(project, 2, "project name");
     engine(bucket, 3, "bucket name");
     engine(password, 5, "password");
+    if(e.submitter.id == 'submit' && submitted == true ){
+      alert('created succesfully')
+    }
+    
   }
+
+  // for (let index = 0; index < errorMsg.length; index++) {
+  //   let element = errorMsg[index];
+  //   if (element.innerHTML != '') {
+  //     submitted = false;
+  //     break;
+  //   }
+  // }
+
+
+  
+  
 });
 
 // engine function which will do all the works
@@ -52,5 +71,6 @@ function clearFunc(e)
     document.getElementById("password").value="";
     document.getElementById("runtime").value="";
 }
+
 
 

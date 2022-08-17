@@ -1,44 +1,143 @@
-	
-var list = [
-    {
-        "machine_name":"Auto Winding Machine",
-        "machine_id":"machine001",
-        "current":0,
-        "voltage":0,
-        "power_factor":0,
-        "active_power": 0.0,
-        "apparent_power" :0.0,
-        "reactive_power": 0.0,
-        "daily_energy": 0,
-        "monthly_energy" :0,
-        "yearly_energy" : 0,
-        "idle_daily" : 0,
-        "idle_monthly" :0,
-        "idle_yearly" : 0    
-    },
-    {
-        "machine_name":"Boiler Machine",
-        "machine_id":"machine004",
-        "current":0,
-        "voltage":0,
-        "power_factor":0 ,
-        "active_power": 0.0,
-        "apparent_power" :0.0 ,
-        "reactive_power": 0.0,
-        "daily_energy": 0,
-        "monthly_energy" :0,
-        "yearly_energy" : 0,
-        "idle_daily" : 0,
-        "idle_monthly" :0,
-        "idle_yearly" : 0 
+ var list = [];
+
+//     {
+//         "machine_name":"Auto Winding Machine",
+//         "machine_id":"machine001",
+//         "current":0,
+//         "voltage":0,
+//         "power_factor":0,
+//         "active_power": 0.0,
+//         "apparent_power" :0.0,
+//         "reactive_power": 0.0,
+//         "daily_energy": 0,
+//         "monthly_energy" :0,
+//         "yearly_energy" : 0,
+//         "idle_daily" : 0,
+//         "idle_monthly" :0,
+//         "idle_yearly" : 0    
+//     },
+//     {
+//         "machine_name":"Boiler Machine",
+//         "machine_id":"machine004",
+//         "current":0,
+//         "voltage":0,
+//         "power_factor":0 ,
+//         "active_power": 0.0,
+//         "apparent_power" :0.0 ,
+//         "reactive_power": 0.0,
+//         "daily_energy": 0,
+//         "monthly_energy" :0,
+//         "yearly_energy" : 0,
+//         "idle_daily" : 0,
+//         "idle_monthly" :0,
+//         "idle_yearly" : 0 
+//     }
+// ];
+//readTextFile("file:///C:/your/path/to/file.txt");
+
+async function dataOperations(){
+
+   await fetchAsync("/assestment-2/Data.txt");
+
+}
+ async function fetchAsync(url) {
+ 
+    const promise = await fetch(url,{ 
+        method: 'GET'
+    });
+
+    const data = await promise.text();
+
+    return data;
+
+}
+
+function fetchData()
+{
+    console.log("data fetch called")
+
+    var txtFile = new XMLHttpRequest();  
+
+    txtFile.open("GET", "/assestment-2/Data.txt", true);  
+
+        txtFile.onreadystatechange = function()   
+        {  
+           if (txtFile.readyState === 4)   
+           {  
+               // Makes sure the document is ready to parse.  
+               if (txtFile.status === 200)   
+               {  
+                    // Makes sure it's found the file.  
+                    //document.getElementById("output").innerHTML = txtFile.responseText;  
+
+                    ParseData(txtFile);
+                }  
+            }  
+        }  
+     
+     //txtFile.send(null)  
+     console.log("list",list);
+
+}
+
+
+function ParseData(data) {
+
+    //var data = txtFile.responseText;
+    
+
+    data = data.replace(/\n/g, '');
+    data = data.replace(/\r/g, '');
+    data = data.replace(/ /g, '');
+    data = data.replace(/'/g, '');
+    data = data.replaceAll('[', '');
+    data = data.replace(']]', '');
+
+    var datalst = data.split('],');
+
+    var columnList = [];
+
+    for (let index = 0; index < datalst.length; index++) {
+
+        var item = datalst[index].split(",");
+
+        var dataDic = {};
+
+        if (index == 0) {
+
+            for (let i = 0; i < item.length; i++) {
+
+                columnList.push(item[i]);
+            }
+        }
+
+        else {
+            for (let j = 0; j < item.length; j++) {
+
+                dataDic[columnList[j]] = item[j];
+            }
+
+            list.push(dataDic);
+
+            console.log(list);
+        }
     }
-];
+}
 
 
-window.addEventListener('load', (event) => {
+
+window.addEventListener('load', async (event) => {
 console.log('page is fully loaded');
+
+var data = await fetchAsync("/assestment-2/Data.txt");
+ParseData(data)
+
+
+//fetchData()
 constructTable('#table')
 });
+
+
 
 
 function constructTable(selector) {
