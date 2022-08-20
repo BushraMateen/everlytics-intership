@@ -166,8 +166,8 @@ $(selector).append(row);
 
 function Headers(list, selector) {
 var columns = [];
-var header = $('<tr/>');
-var energyHeader = $('<tr/>');
+var header = $("<tr class='header'/>");
+var energyHeader = $("<tr class='header'/>");
 //ar idleHeader = $('<tr/>');
 
 for (var i = 0; i < list.length; i++) {
