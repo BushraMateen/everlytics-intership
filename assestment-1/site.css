@@ -64,6 +64,9 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     padding: 50px;
     border: 2px solid rgba(0, 0, 0, 0.24);
+    margin-top: 5%;
+    background: hwb(238deg 52% 0% / 38%);
+    border-radius: 6%;
   }
   
   .title {
@@ -90,6 +93,7 @@
     border: 2px solid #c4c4c4;
     padding: 0 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;
   }
   
   form div select {
@@ -213,8 +217,8 @@
     padding: 8px;
     width: 23%;
     height: 45px;
-    background-color: #f2796e;
-    border: 2px solid #f2796e;
+    background-color: #1500f596;
+    border: 1px solid #1500f561;
     border-radius: 8px;
     color: #fff;
     font-size: 20px;
