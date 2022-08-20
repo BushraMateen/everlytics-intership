@@ -10,7 +10,7 @@ let pipline = document.getElementById("pipline"),
   errorMsg = classes("error");
 
   let piplineRegExp = /[^a-zA-Z0-9\-\/]/;
-
+  //let specialRegExp = /^+/;
 
 form.addEventListener("submit", (e) => {
 
@@ -40,14 +40,12 @@ form.addEventListener("submit", (e) => {
     engine(bucket, 3, "bucket name");
     engine(password, 5, "password");
 
+      
     setTimeout(() => { if(confirm("Do you Want to Submit the form?")) {
       clearFunc();
       alert('created succesfully');
       } }, 100)
 
-
-    
-    
   }
 
   } 
@@ -63,6 +61,10 @@ let engine = (id, serial, message) => {
     errorMsg[serial].innerHTML = message + ' minimum length is 5';
     id.style.border = "2px solid red";
   }
+  else if(id.value.trim().startsWith("+") || id.value.trim().startsWith("-") || id.value.trim().startsWith("_")){
+    errorMsg[serial].innerHTML = "cannot start with '-', '_', '+'";
+    id.style.border = "2px solid red";
+  }
   else if(piplineRegExp.test(id.value.trim())){
     errorMsg[serial].innerHTML = 'no special character allowed';
     id.style.border = "2px solid red";
@@ -75,10 +77,24 @@ let engine = (id, serial, message) => {
 function clearFunc(e)
 {
     document.getElementById("pipline").value="";
+    document.getElementById("pipline").style.border = "2px solid #c4c4c4";
+    errorMsg[1].innerHTML = "";
+
     document.getElementById("project").value="";
+    document.getElementById("project").style.border = "2px solid #c4c4c4";
+    errorMsg[2].innerHTML = "";
+
     document.getElementById("bucket").value="";
+    document.getElementById("bucket").style.border = "2px solid #c4c4c4";
+    errorMsg[3].innerHTML = "";
+
     document.getElementById("password").value="";
+    document.getElementById("password").style.border = "2px solid #c4c4c4";
+    errorMsg[5].innerHTML = "";
+
     document.getElementById("runtime").value="";
+    document.getElementById("runtime").style.border = "2px solid #c4c4c4";
+
 }
 
 
