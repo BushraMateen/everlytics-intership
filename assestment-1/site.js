@@ -10,13 +10,13 @@ let pipline = document.getElementById("pipline"),
   errorMsg = classes("error");
 
   let piplineRegExp = /[^a-zA-Z0-9\-\/]/;
-  //let specialRegExp = /^+/;
+
 
 form.addEventListener("submit", (e) => {
 
   e.preventDefault();
 
-  //let submitted = true;
+ 
   let isError = false;
 
   if(e.submitter.id !== 'Cancle'){
@@ -34,20 +34,12 @@ form.addEventListener("submit", (e) => {
   }
 
   if(isError != true){
-
-    engine(pipline, 1, "pipline name");
-    engine(project, 2, "project name");
-    engine(bucket, 3, "bucket name");
-    engine(password, 5, "password");
-
-      
     setTimeout(() => { if(confirm("Do you Want to Submit the form?")) {
       clearFunc();
       alert('created succesfully');
       } }, 100)
 
   }
-
   } 
 });
 

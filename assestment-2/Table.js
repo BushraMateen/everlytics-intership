@@ -1,40 +1,5 @@
  var list = [];
 
-//     {
-//         "machine_name":"Auto Winding Machine",
-//         "machine_id":"machine001",
-//         "current":0,
-//         "voltage":0,
-//         "power_factor":0,
-//         "active_power": 0.0,
-//         "apparent_power" :0.0,
-//         "reactive_power": 0.0,
-//         "daily_energy": 0,
-//         "monthly_energy" :0,
-//         "yearly_energy" : 0,
-//         "idle_daily" : 0,
-//         "idle_monthly" :0,
-//         "idle_yearly" : 0    
-//     },
-//     {
-//         "machine_name":"Boiler Machine",
-//         "machine_id":"machine004",
-//         "current":0,
-//         "voltage":0,
-//         "power_factor":0 ,
-//         "active_power": 0.0,
-//         "apparent_power" :0.0 ,
-//         "reactive_power": 0.0,
-//         "daily_energy": 0,
-//         "monthly_energy" :0,
-//         "yearly_energy" : 0,
-//         "idle_daily" : 0,
-//         "idle_monthly" :0,
-//         "idle_yearly" : 0 
-//     }
-// ];
-//readTextFile("file:///C:/your/path/to/file.txt");
-
 async function dataOperations(){
 
    await fetchAsync("/assestment-2/Data.txt");
@@ -64,27 +29,17 @@ function fetchData()
         {  
            if (txtFile.readyState === 4)   
            {  
-               // Makes sure the document is ready to parse.  
+               
                if (txtFile.status === 200)   
                {  
-                    // Makes sure it's found the file.  
-                    //document.getElementById("output").innerHTML = txtFile.responseText;  
-
                     ParseData(txtFile);
                 }  
             }  
-        }  
-     
-     //txtFile.send(null)  
-     console.log("list",list);
-
+        } 
 }
 
 
 function ParseData(data) {
-
-    //var data = txtFile.responseText;
-    
 
     data = data.replace(/\n/g, '');
     data = data.replace(/\r/g, '');
@@ -124,21 +79,11 @@ function ParseData(data) {
     }
 }
 
-
-
 window.addEventListener('load', async (event) => {
-console.log('page is fully loaded');
-
 var data = await fetchAsync("/assestment-2/Data.txt");
 ParseData(data)
-
-
-//fetchData()
 constructTable('#table')
 });
-
-
-
 
 function constructTable(selector) {
 
@@ -168,7 +113,7 @@ function Headers(list, selector) {
 var columns = [];
 var header = $("<tr class='header'/>");
 var energyHeader = $("<tr class='header'/>");
-//ar idleHeader = $('<tr/>');
+
 
 for (var i = 0; i < list.length; i++) {
 var row = list[i];
