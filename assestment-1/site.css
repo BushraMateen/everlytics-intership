@@ -1,8 +1,4 @@
-/* Tutorial - https://youtu.be/VufN46OyFng */
 
-/**
-* ! changing default styles of brower
-**/
 
 * {
     margin: 0;
@@ -22,9 +18,6 @@
   
   }
   
-  /**
-    * ! style rules for content section
-    **/
   
   .content {
     display: flex;
@@ -41,7 +34,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    /* border: 2px solid black; */
     height: 65%;
   }
   
@@ -51,16 +43,9 @@
     font-size: 18px;
   }
   
-  /**
-    * ! style rules for form section
-    **/
-  
   form {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* width: 100%; */
-    /* max-width: 400px; */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     padding: 50px;
     border: 2px solid rgba(0, 0, 0, 0.24);
@@ -120,7 +105,6 @@
   
   form div {
     position: relative;
-    /* margin-bottom: 15px; */
     display: flex;
     height: 60px;
   }
